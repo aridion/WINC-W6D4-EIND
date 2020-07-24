@@ -9,8 +9,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
+<<<<<<< HEAD
     "react-scripts": "3.4.1",
     "victory": "^35.0.5"
+=======
+    "react-scripts": "3.4.1"
+>>>>>>> 434c91980829e35928ce7e294e27b3ce7b01141b
   },
   "scripts": {
     "start": "react-scripts start",
