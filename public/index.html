@@ -5,6 +5,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="styles.css">
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -29,15 +30,98 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div id="animatieVoorNiels" style= "display: none;">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- <script type="text/javascript">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+
+
+      window.onload = function () {
+        //Select the container in which the animation will be played
+        let node_copy = document.getElementById("animatieVoorNiels");
+
+        //Your animation frames, frame by frame.
+        //Feel free to add or delete frames, to see what happens ;)
+        asciiFrames = [
+          `　.　 ∧∧ ∩
+　　( ´∀｀)/　
+　⊂　　 ﾉ　　
+　　(つ ﾉ　　
+　　 (ノ　`,
+          `
+                  .∧∧ ∩
+                 ( ´∀｀)/
+                ⊂　　 ﾉ　.　
+               　  (つ ﾉ　
+                　   (ノ`,
+          `
+          
+                                      　∧∧ ∩
+                                     　( ´∀｀)/
+                                     　 ⊂　　 ﾉ
+　                                     　 (つ ﾉ
+                                      　　(ノ　`,
+          `
+          
+          
+          
+          
+          
+          　                                     ∧∧ ∩
+                                              　( ´∀｀)/
+                                          　　 ＿| つ／ヽ-、＿
+                                          　　／　└-(＿＿＿_／
+                                          　　￣￣￣￣￣￣￣　
+                                       `,
+          `
+
+
+
+
+
+
+
+
+
+
+
+                                       　　          ＜⌒／ヽ＿＿＿
+                                                 　／＜_/＿＿＿＿／
+                                                 　￣￣￣￣￣￣￣
+                                       `,
+        ];
+
+        const animateASCII = {
+          init: function (frames, target) {
+            //Set the start frame to 0
+            let i = 0;
+            //Puts the start frame inside the node_copy container
+            node_copy.innerText = frames[0];
+            
+            //Starts the interval to render the animation
+            setInterval(() => {
+              //Puts the new frame in the node_copy container
+              
+              node_copy.innerText = frames[i]
+
+              // node = node_copy.replace(/<br\s*/?>/gm," ")
+              // document.getElementById('animatieVoorNiels').innerHTML = node
+              
+              /*Goes to the next array element (frame), and sets it to 
+           zero if last frame is reached to restart the animation*/
+              if (i < frames.length - 1) {
+                i++;
+              } else {
+                i = 0;
+              }
+              //Here you can adjust the animation speed
+            }, 200);
+          },
+        }; 
+
+        //Starts the ASCII function
+        animateASCII.init(asciiFrames, node_copy);
+      };
+    </script>-->
   </body>
 </html>

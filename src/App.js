@@ -6,14 +6,14 @@ import Data from "./Data.json";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import StudentPage from "./StudentPage";
-import Home from "./MainDashboard";
+import StudentPage from "./pages/StudentPage";
+import Home from "./pages/MainDashboard";
 
 function App() {
   const [data] = useState({ Data });
   const mutableData = [...data.Data];
 
-  // get all student names
+  // filter all student names out of data (there are no doubles)
   const filterStudentNames = () => {
     const namesArray = [];
 
@@ -24,7 +24,9 @@ function App() {
     return namesArray;
   };
 
-  // get assignments per student
+  const allStudentNames = filterStudentNames();
+  ////////
+  // get assignment data per student
   const getStudentsAssignments = (studentName) => {
     const assignments = [];
 
@@ -34,6 +36,14 @@ function App() {
     });
     return assignments;
   };
+
+  const allAssignmentsByObjects = filterStudentNames().map((name) =>
+    getStudentsAssignments(name)
+  );
+
+  const allAssignmentNames = getStudentsAssignments("Evelyn").map(
+    (assignmentInfo) => assignmentInfo.assignment.assignment
+  );
 
   // make links per student
   const linkToStudentPages = () =>
@@ -50,6 +60,7 @@ function App() {
         <StudentPage
           name={name}
           assignments={getStudentsAssignments(name)}
+          assignmentNames={allAssignmentNames}
           id={index}
         />
       </Route>
@@ -58,19 +69,21 @@ function App() {
   return (
     <>
       <Router>
-        <Link to="/">Home</Link>
-        <Link to="/StudentPage">StudentPH</Link>
-        {linkToStudentPages()}
+        <nav>
+          <Link to="/">Home</Link>
+          {linkToStudentPages()}
+        </nav>
 
-        <h1>hello from App</h1>
         <main>
           <Switch>
-            {/* <Route path="/StudentPage">
-              <StudentPage name={"Aron"} />
-            </Route> */}
             {routeToStudentPages()}
             <Route path="/">
-              <Home />
+              <Home
+                studentNames={allStudentNames}
+                assignments={allAssignmentsByObjects}
+                data={mutableData}
+                assignmentNames={allAssignmentNames}
+              />
             </Route>
           </Switch>
         </main>
@@ -80,3 +93,38 @@ function App() {
 }
 
 export default App;
+
+// // pick all ratings
+// const getAveragesPerAssignment = (AssignmentName, enjoyRating) => {
+//   const totalRatingsPerAssignment = [];
+
+//   mutableData.forEach((assignment) => {
+//     if (assignment.assignment === AssignmentName)
+//       return enjoyRating === true
+//         ? totalRatingsPerAssignment.push(parseInt(assignment.enjoyment))
+//         : totalRatingsPerAssignment.push(parseInt(assignment.difficulty));
+//   });
+
+//   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+//   return (
+//     totalRatingsPerAssignment.reduce(reducer) /
+//     totalRatingsPerAssignment.length
+//   );
+// };
+
+// const allAverages = assignmentNamesArray.map((name) =>
+//   getAveragesPerAssignment(name)
+// );
+
+// const averageEnjoyment = assignmentNamesArray.map((name) =>
+//   getAveragesPerAssignment(name, true)
+// );
+
+// const averageDifficulty = assignmentNamesArray.map((name) =>
+//   getAveragesPerAssignment(name, false)
+// );
+/////
+
+// averageEnjoyment={averageEnjoyment}
+// averageDifficulty={averageDifficulty}
