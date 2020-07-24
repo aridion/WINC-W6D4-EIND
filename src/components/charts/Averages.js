@@ -1,6 +1,8 @@
 import React from "react";
 // import "./Bar.css";
 import aronsTheme from "./BarTheme";
+import "./Chart.css";
+
 import {
   VictoryLine,
   VictoryBar,
@@ -41,84 +43,82 @@ function Bar(info) {
     getAveragesPerAssignment(name, false)
   );
 
-  console.log("averageDifficulty", averageDifficulty);
-  console.log("averageEnjoyment", averageEnjoyment);
+  //makes data ready to be imported into charts
+  averageEnjoyment.unshift(0);
+  averageDifficulty.unshift(0);
 
-  console.log("info.assignments ", info.assignments);
-
-  console.log("avg diff", info.difficulty);
-
-  console.log("avg enjoy", info.enjoyment);
-
-  console.log(
-    "info.assignmentNames.map((item) => item)",
-    info.assignmentNames.map((item) => item)
-  );
-
-  // choose assignment data
   return (
-    <div>
-      <VictoryChart domainPadding={15} theme={aronsTheme}>
-        <VictoryGroup offset={5}>
-          <VictoryBar
-            alignment="start"
-            data={averageEnjoyment}
-            x="assignment"
-            y="enjoymentRating"
-            tickValues={[1, 2, 3, 4, 5]}
-            tickFormat={info.assignmentNames}
-          />
-          <VictoryBar
-            alignment="start"
-            data={averageDifficulty}
-            x="assignment"
-            y="enjoymentRating"
-            tickValues={[1, 2, 3, 4, 5]}
-            tickFormat={info.assignmentNames}
-          />
-        </VictoryGroup>
+    <>
+      <h1>Average Ratings Visualized in a Bar Chart</h1>
+      <figure>
+        <VictoryChart
+          domain={{ x: [0, 56], y: [0, 5] }}
+          // domainPadding={{ x: 100 }}
+          theme={aronsTheme}
+        >
+          <VictoryGroup offset={5}>
+            <VictoryBar
+              // alignment="start"
+              data={averageEnjoyment}
+              x="assignment"
+              y="enjoymentRating"
+              tickValues={[1, 2, 3, 4, 5]}
+              tickFormat={info.assignmentNames}
+            />
+            <VictoryBar
+              // alignment="start"
+              data={averageDifficulty}
+              x="assignment"
+              y="enjoymentRating"
+              tickValues={[1, 2, 3, 4, 5]}
+              tickFormat={info.assignmentNames}
+            />
+          </VictoryGroup>
 
-        <VictoryAxis
-          // tickValues specifies both the number of ticks and where
-          // they are placed on the axis
-          // tickValues={[1, 2, 3, 4, 5, 6]}
-          tickFormat={info.assignmentNames}
-          width={300}
-          height={50}
-        />
-        <VictoryAxis dependentAxis domain={[0, 5]} width={300} height={50} />
-      </VictoryChart>
-      <VictoryChart domainPadding={15} theme={aronsTheme}>
-        <VictoryGroup offset={5}>
-          <VictoryLine
-            alignment="start"
-            data={averageEnjoyment}
-            x="assignment"
-            y="enjoymentRating"
-            tickValues={[1, 2, 3, 4, 5]}
+          <VictoryAxis
             tickFormat={info.assignmentNames}
+            width={300}
+            height={50}
+            style={{ tickLabels: { angle: 45 } }}
           />
-          <VictoryLine
-            alignment="start"
-            data={averageDifficulty}
-            x="assignment"
-            y="enjoymentRating"
-            tickValues={[1, 2, 3, 4, 5]}
-            tickFormat={info.assignmentNames}
-          />
-        </VictoryGroup>
+          <VictoryAxis dependentAxis style={{ tickLabels: { padding: 15 } }} />
+        </VictoryChart>
+      </figure>
+      <h1>Average Ratings Visualized in a Line Chart</h1>
+      <figure>
+        <VictoryChart domain={{ x: [1, 56], y: [0, 5] }} theme={aronsTheme}>
+          <VictoryGroup offset={0}>
+            <VictoryLine
+              alignment="start"
+              data={averageEnjoyment}
+              x="assignment"
+              y="enjoymentRating"
+              tickValues={[1, 2, 3, 4, 5]}
+              tickFormat={info.assignmentNames}
+            />
+            <VictoryLine
+              alignment="start"
+              data={averageDifficulty}
+              x="assignment"
+              y="enjoymentRating"
+              tickValues={[1, 2, 3, 4, 5]}
+              tickFormat={info.assignmentNames}
+            />
+          </VictoryGroup>
 
-        <VictoryAxis
-          // tickValues specifies both the number of ticks and where
-          // they are placed on the axis
-          // tickValues={[1, 2, 3, 4, 5, 6]}
-          tickFormat={info.assignmentNames}
-          width={300}
-          height={50}
-        />
-        <VictoryAxis dependentAxis domain={[0, 5]} width={300} height={50} />
-      </VictoryChart>
-    </div>
+          <VictoryAxis
+            // tickValues specifies both the number of ticks and where
+            // they are placed on the axis
+            // tickValues={[1, 2, 3, 4, 5, 6]}
+            tickFormat={info.assignmentNames}
+            width={300}
+            height={50}
+            style={{ tickLabels: { angle: 45 } }}
+          />
+          <VictoryAxis dependentAxis style={{ tickLabels: { padding: 15 } }} />
+        </VictoryChart>
+      </figure>
+    </>
   );
 }
 

@@ -58,7 +58,7 @@ const aronsTheme = {
         fill: "#455A64",
         stroke: "transparent",
         strokeWidth: 0,
-        angle: 45,
+        // angle: 45,
         textAnchor: "start",
       },
     },
@@ -216,11 +216,11 @@ const aronsTheme = {
     padding: 50,
   },
 
-  // NEEDED FOR BAR COLORS
+  // NEEDED FOR BARS & LINES COLORS
   group: {
     colorScale: [
-      "#388545",
-      "#4482CC",
+      "#C79902",
+      "#398DC4",
       "#DCE775",
       "#8BC34A",
       "#00796B",

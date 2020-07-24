@@ -2,6 +2,45 @@
   text-align: center;
 }
 
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1em;
+  color: #143860;
+  background-color: beige;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+nav {
+  padding: 6vh 0 6vh 5vw;
+  background-color: #05524e;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+main {
+  margin: 5%;
+}
+
+figure {
+  background-color: #fffae9;
+}
+
+a {
+  text-decoration: none;
+  color: #fffae9;
+  margin: 0 0 0 1vw;
+  font-weight: 700;
+}
+
+a:hover {
+  border-top: 2px solid #fffae9;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
