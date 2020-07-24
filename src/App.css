@@ -12,6 +12,20 @@ body {
 h1 {
   font-size: 1.5em;
 }
+h2 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  color: #05524e;
+}
+
+hr {
+  border: 1px solid #143860;
+  margin-bottom: 5%;
+}
 
 nav {
   padding: 6vh 0 6vh 5vw;
@@ -22,12 +36,50 @@ nav {
   z-index: 999;
 }
 
+aside {
+  padding: 1%;
+  width: 25%;
+  background-color: #fffae9;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  border: solid #05524e;
+  border-bottom: 2px;
+  border-left: 2px;
+}
+
+aside > p {
+  margin: 0 10% 0 5%;
+}
+aside > figure {
+  margin: 0;
+  width: 3px;
+  height: 0;
+  padding-bottom: 21px;
+  background-color: #05524e;
+}
+aside :nth-child(1) {
+  background-color: rgb(199, 153, 2);
+}
+
+aside :nth-child(3) {
+  background-color: rgb(57, 141, 196);
+}
+
 main {
   margin: 5%;
 }
 
 figure {
   background-color: #fffae9;
+}
+
+section {
+  display: grid;
+  grid-gap: 5em;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 a {

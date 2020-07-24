@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import StudentPage from "./pages/StudentPage";
 import Home from "./pages/MainDashboard";
+import Legend from "./components/Legend";
 
 function App() {
   const [data] = useState({ Data });
@@ -87,6 +88,9 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <aside>
+          <Legend />
+        </aside>
       </Router>
     </>
   );
