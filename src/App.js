@@ -97,38 +97,3 @@ function App() {
 }
 
 export default App;
-
-// // pick all ratings
-// const getAveragesPerAssignment = (AssignmentName, enjoyRating) => {
-//   const totalRatingsPerAssignment = [];
-
-//   mutableData.forEach((assignment) => {
-//     if (assignment.assignment === AssignmentName)
-//       return enjoyRating === true
-//         ? totalRatingsPerAssignment.push(parseInt(assignment.enjoyment))
-//         : totalRatingsPerAssignment.push(parseInt(assignment.difficulty));
-//   });
-
-//   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-//   return (
-//     totalRatingsPerAssignment.reduce(reducer) /
-//     totalRatingsPerAssignment.length
-//   );
-// };
-
-// const allAverages = assignmentNamesArray.map((name) =>
-//   getAveragesPerAssignment(name)
-// );
-
-// const averageEnjoyment = assignmentNamesArray.map((name) =>
-//   getAveragesPerAssignment(name, true)
-// );
-
-// const averageDifficulty = assignmentNamesArray.map((name) =>
-//   getAveragesPerAssignment(name, false)
-// );
-/////
-
-// averageEnjoyment={averageEnjoyment}
-// averageDifficulty={averageDifficulty}

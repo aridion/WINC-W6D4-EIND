@@ -33,11 +33,3 @@ function MainDashboard(info) {
 }
 
 export default MainDashboard;
-
-/* <Charts
-  name={"Home"}
-  assignments={info.assignments}
-  assignmentNames={info.assignmentNames}
-  // averageEnjoyment={props.averageEnjoyment}
-  // averageDifficulty={props.averageDifficulty}
-/>; */

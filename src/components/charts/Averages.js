@@ -107,9 +107,6 @@ function Bar(info) {
           </VictoryGroup>
 
           <VictoryAxis
-            // tickValues specifies both the number of ticks and where
-            // they are placed on the axis
-            // tickValues={[1, 2, 3, 4, 5, 6]}
             tickFormat={info.assignmentNames}
             width={300}
             height={50}
@@ -122,25 +119,4 @@ function Bar(info) {
   );
 }
 
-// props needed assignment data
-// assignments
-//
-
 export default Bar;
-
-// props.averageEnjoyment === undefined ? props.averageEnjoyment : enjoyment;
-
-// props.averageDifficulty === undefined ? props.averageDifficulty : difficulty;
-
-// props.averageEnjoyment === undefined ? props.averageEnjoyment : enjoyment;
-
-// props.averageDifficulty === undefined ? props.averageDifficulty : difficulty;
-
-//   <VictoryBar
-//     labelComponent={<VictoryTooltip />}
-//     data={assignmentRatingAverageWithLabels}
-//     x="assignment"
-//     y="difficultyRating"
-//     tickValues={[1, 2, 3, 4, 5]}
-//     tickFormat={props.assignments.assignment.map((item) => item.assignment)}
-//   />

@@ -22,14 +22,3 @@ function Charts(props) {
 }
 
 export default Charts;
-
-// props.name === "Home" ? (
-//     <div>
-//       <h2>hello from home charts</h2>
-//       <Bar
-//         enjoyment={averageEnjoyment}
-//         difficulty={averageDifficulty}
-//         assignments={props.assignments}
-//       />
-//     </div>
-//   ) :

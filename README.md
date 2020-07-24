@@ -1,3 +1,7 @@
+## Aron's Student Dashboard
+
+**Hi, here's my Student Dashboard**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
